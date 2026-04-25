@@ -1,0 +1,24 @@
+{
+  "name": "research-brief-builder-backend",
+  "version": "1.0.0",
+  "description": "Backend for Research Brief Builder",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "@mozilla/readability": "^0.6.0",
+    "cheerio": "^1.1.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.4.2",
+    "express": "^4.21.2",
+    "express-rate-limit": "^8.4.1",
+    "jsdom": "^26.1.0",
+    "openai": "^6.34.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
