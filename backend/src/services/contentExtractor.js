@@ -26,14 +26,17 @@ export function splitSentences(text = "") {
 export async function extractContentFromUrl(url) {
   const response = await fetch(url, {
     headers: {
-      "User-Agent": "ResearchBriefBuilderBot/1.0 (+content extraction)"
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120 Safari/537.36",
+      "Accept-Language": "en-US,en;q=0.9"
     }
   });
 
   if (!response.ok) {
-    throw new Error(`Failed to fetch source (${response.status})`);
+    return {
+      success: false,
+      error: `Blocked (${response.status})`
+    };
   }
-
   const html = await response.text();
   const dom = new JSDOM(html, { url });
   const reader = new Readability(dom.window.document);
